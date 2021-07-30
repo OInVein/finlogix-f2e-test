@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './app/styles/reset.scss';
 import App from './app';
 import { store } from './app/store';
 import { Provider } from 'react-redux';

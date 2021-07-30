@@ -1,0 +1,78 @@
+@import '../../styles/variables.scss', '../../styles/base.scss';
+
+.introduction {
+  width: 100%;
+  height: inherit;
+  max-height: 788px;
+  padding: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 120px;
+
+  &Des {
+    width: 50%;
+
+    &Topic {
+      color: rgb(1, 37, 79);
+      font-size: 22px;
+      font-weight: 500;
+      padding: $main-gap 0;
+    }
+
+    &Content {
+      font-size: 16px;
+      font-weight: 400;
+      color: $description-text-color;
+    }
+
+    &More {
+      font-size: 16px;
+      font-weight: 400;
+      color: $description-text-color;
+      cursor: pointer;
+      display: flex;
+      gap: 5px;
+
+      &Button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 0;
+        width: 22px;
+        height: 22px;
+        transform: rotate(-90deg);
+
+        &::before {
+          @extend .registerArrow;
+          background-color: $description-text-color;
+          transform: rotate(45deg);
+          right: 8px;
+        }
+
+        &::after {
+          @extend .registerArrow;
+          background-color: $description-text-color;
+          transform: rotate(-45deg);
+          left: 8px;
+        }
+      }
+    }
+  }
+
+  &Video {
+    width: 40%;
+    position: relative;
+    padding-bottom: 25%;
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

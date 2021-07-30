@@ -1,0 +1,70 @@
+@import '../../styles/variables.scss', '../../styles/base.scss';
+
+.registerForm {
+  width: 100%;
+  max-height: 1012px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 93px);
+    max-height: 898px;
+    border: 1px solid rgba(128, 128, 128, 0.349);
+    box-shadow: 0 5px 15px 5px lightgrey;
+    border-radius: 15px;
+    margin-bottom: 144px;
+
+    &Outer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: $main-gap;
+      max-width: $form-max-width;
+      padding: 80px 0;
+    }
+
+    &Title {
+      color: #01254F;
+      font-weight: 500;
+      font-size: 22px;
+    }
+
+    &Des {
+      font-weight: 400;
+      font-size: 16px;
+      color: $description-text-color;
+      text-align: center;
+    }
+
+    &Form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: $main-gap;
+      font-weight: 400;
+      font-size: 16px;
+      width: 100%;
+
+      &Topic {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        color: rgb(74, 74, 74);
+        width: 100%;
+      }
+
+      &InputArea {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+      }
+    }
+  }
+}
