@@ -1,46 +1,52 @@
 $main-color: rgb(3, 35, 98);
 $white-color: rgb(255, 255, 255);
-
 .app {
   width: 100%;
   height: 100%;
   max-width: 1920px;
 }
 
-.commonPadding {
-  padding: 20px;
-}
-
-$button-gap: 20px;
+$main-gap: 20px;
 $button-height: 50px;
 $border-radius: 5px;
-.commonButton {
-  cursor: pointer;
-  transition: all .3s;
-  max-width: 250px;
-  width: inherit;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid $main-color;
-  border-radius: $border-radius;
-
-  &Active {
-    color: $main-color;
-    background-color: $white-color;
+.common {
+  &Padding {
+    padding: $main-gap;
   }
 
-  &InActive {
-    color: $white-color;
-    background-color: $main-color;
+  &Transition {
+    transition: all .3s;
   }
 
-  &Hover {
-    transform: scale(1.1);
+  &Button {
+    @extend .commonTransition;
+    cursor: pointer;
+    max-width: 250px;
+    width: inherit;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $main-color;
+    border-radius: $border-radius;
+
+    &Active {
+      color: $main-color;
+      background-color: $white-color;
+    }
+
+    &InActive {
+      color: $white-color;
+      background-color: $main-color;
+    }
+
+    &Hover {
+      transform: scale(1.1);
+    }
   }
 }
 
+$arrow-width-height: 20px;
 .arrow {
   content: '';
   position: absolute;
@@ -48,26 +54,26 @@ $border-radius: 5px;
   height: 10px;
   background-color: black;
   border-radius: $border-radius;
-}
 
-.arrowUp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 20px;
-  height: 20px;
+  &Up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: $arrow-width-height;
+    height: $arrow-width-height;
 
-  &::before {
-    @extend .arrow;
-    transform: rotate(45deg);
-    right: 6px;
-  }
+    &::before {
+      @extend .arrow;
+      transform: rotate(45deg);
+      right: 6px;
+    }
 
-  &::after {
-    @extend .arrow;
-    transform: rotate(-45deg);
-    left: 6px;
+    &::after {
+      @extend .arrow;
+      transform: rotate(-45deg);
+      left: 6px;
+    }
   }
 }
 
@@ -150,7 +156,7 @@ $border-color: rgb(242, 242, 242);
         }
 
         .headerNavGroupDropDownButton i {
-          transition: all .3s;
+          @extend .commonTransition;
           transform: rotate(-180deg);
         }
       }
@@ -163,7 +169,7 @@ $border-color: rgb(242, 242, 242);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: $button-gap;
+    gap: $main-gap;
 
     &Login {
       @extend .commonButton, .commonButtonActive;
@@ -194,6 +200,8 @@ $register-color: rgb(107, 183, 24);
   border-radius: $border-radius;
 }
 
+$description-text-color: rgba(0, 0, 0, .65);
+$form-max-width: 55%;
 .main {
   width: 100%;
   height: inherit;
@@ -207,7 +215,7 @@ $register-color: rgb(107, 183, 24);
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: $button-gap;
+    gap: $main-gap;
 
     &Title {
       font-size: 28px;
@@ -218,7 +226,7 @@ $register-color: rgb(107, 183, 24);
       text-align: center;
       max-width: 800px;
       font-size: 16px;
-      color: rgba(0, 0, 0, .65);
+      color: $description-text-color;
     }
   }
 
@@ -230,24 +238,25 @@ $register-color: rgb(107, 183, 24);
     padding: 80px;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(autofill, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-auto-flow: column;
     align-items: center;
-    gap: $button-gap;
+    gap: $main-gap;
     overflow-x: auto;
     max-width: 9999px;
 
     &Item {
+      @extend .commonTransition;
       height: 300px;
       min-width: 380px;
       border: 1px solid rgb(214, 214, 214);
       background-color: $white-color;
-      padding: $button-gap;
-      gap: $button-gap;
+      padding: $main-gap;
+      gap: $main-gap;
       border-radius: $border-radius;
       display: flex;
       flex-direction: column;
-      transition: all .3s;
+      box-shadow: 0 1px 6px 0 lightgrey;
 
       &:hover {
         border-color: $main-color;
@@ -272,14 +281,14 @@ $register-color: rgb(107, 183, 24);
 
         &Message {
           font-size: 16px;
-          color: rgba(0, 0, 0, .65);
+          color: $description-text-color;
           font-weight: 400;
         }
 
         &Time {
           margin-top: 6px;
           font-size: 14px;
-          color: rgba(0, 0, 0, .65);
+          color: $description-text-color;
           font-weight: 400;
         }
       }
@@ -294,8 +303,8 @@ $register-color: rgb(107, 183, 24);
         font-size: 16px;
 
         &Text {
+          @extend .commonTransition;
           cursor: pointer;
-          transition: all .3s;
           padding: 5px;
 
           &:hover {
@@ -306,6 +315,7 @@ $register-color: rgb(107, 183, 24);
         }
 
         &Register {
+          @extend .commonTransition;
           cursor: pointer;
           position: relative;
           display: flex;
@@ -318,7 +328,6 @@ $register-color: rgb(107, 183, 24);
           background-color: $white-color;
           border: 1px solid $register-color;
           border-radius: 9999px;
-          transition: all .3s;
           transform: rotate(-90deg);
 
           &::before {
@@ -362,19 +371,19 @@ $register-color: rgb(107, 183, 24);
         color: rgb(1, 37, 79);
         font-size: 22px;
         font-weight: 500;
-        padding: $button-gap 0;
+        padding: $main-gap 0;
       }
 
       &Content {
         font-size: 16px;
         font-weight: 400;
-        color: rgba(0, 0, 0, .65);
+        color: $description-text-color;
       }
 
       &More {
         font-size: 16px;
         font-weight: 400;
-        color: rgba(0, 0, 0, .65);
+        color: $description-text-color;
         cursor: pointer;
         display: flex;
         gap: 5px;
@@ -391,14 +400,14 @@ $register-color: rgb(107, 183, 24);
 
           &::before {
             @extend .registerArrow;
-            background-color: rgba(0, 0, 0, .65);
+            background-color: $description-text-color;
             transform: rotate(45deg);
             right: 8px;
           }
 
           &::after {
             @extend .registerArrow;
-            background-color: rgba(0, 0, 0, .65);
+            background-color: $description-text-color;
             transform: rotate(-45deg);
             left: 8px;
           }
@@ -424,19 +433,187 @@ $register-color: rgb(107, 183, 24);
 
   &Register {
     width: 100%;
-    height: inherit;
     max-height: 1012px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    &Form {
+    &Container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: calc(100% - 93px);
-      max-height: 750px;
-      height: inherit;
-      border: 1px solid gret;
+      max-height: 898px;
+      border: 1px solid rgba(128, 128, 128, 0.349);
       box-shadow: 0 5px 15px 5px lightgrey;
       border-radius: 15px;
+      margin-bottom: 144px;
+
+      &Outer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: $main-gap;
+        max-width: $form-max-width;
+        padding: 80px 0;
+      }
+
+      &Title {
+        color: #01254F;
+        font-weight: 500;
+        font-size: 22px;
+      }
+
+      &Des {
+        font-weight: 400;
+        font-size: 16px;
+        color: $description-text-color;
+        text-align: center;
+      }
+
+      &Form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: $main-gap;
+        font-weight: 400;
+        font-size: 16px;
+        width: 100%;
+
+        &Topic {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          color: rgb(74, 74, 74);
+          width: 100%;
+        }
+
+        &InputArea {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+$input-min-height: 50px;
+$default-form-padding: 12px;
+$form-phone-gap: 28px;
+.defaultForm {
+  @extend .commonTransition;
+  font-size: 16px;
+  width: 100%;
+  color: rgb(51, 51, 51);
+  outline: none;
+  appearance: none;
+  min-height: $input-min-height;
+  border-radius: 5px;
+  border: 1px solid #C6C6C6;
+  padding: 0 $default-form-padding;
+
+  &Focus {
+    border-color: $main-color;
+    box-shadow: 0 1px 6px 0 lightgrey;
+  }
+
+  &Hover {
+    border-color: $main-color;
+  }
+}
+.defaultFormButton {
+  @extend .defaultForm;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  &SelectMain,
+  &InputText,
+  &PhoneAreaCodeSelectMain,
+  &PhoneInputText,
+  &MobileLeftInput {
+    @extend .defaultForm;
+
+    &:focus {
+      @extend .defaultFormFocus;
+    }
+
+    &:hover {
+      @extend .defaultFormHover;
+    }
+  }
+
+  &Select {
+    &Container {
+      width: 100%;
+      position: relative;
+    }
+
+    &Arrow {
+      @extend .arrowUp, .commonTransition;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(-50%, -50%);
+
+      &::before, &::after {
+        background-color: rgb(109, 114, 120);
+      }
+    }
+
+    &Main {
+      padding-right: calc(#{$default-form-padding + $arrow-width-height});
+    }
+  }
+
+  &Phone {
+    &Container {
+      display: flex;
+      gap: $form-phone-gap;
+    }
+
+    &AreaCode {
+      &Container {
+        width: 20%;
+        position: relative;
+      }
+
+      &SelectMain {
+        padding-right: calc(#{$default-form-padding + $arrow-width-height});
+      }
+    }
+
+    &InputText {
+      width: calc(80% - #{$form-phone-gap});
+    }
+  }
+
+  &Mobile {
+    &LeftInput {
+      @extend .formPhoneAreaCodeContainer;
+    }
+  }
+
+  &RegisterButton {
+    &Disabled {
+      @extend .defaultFormButton;
+      cursor: not-allowed;
+      color: rgb(209, 209, 209);
+      background-color: rgb(233, 233, 233);
+    }
+
+    &Allowed {
+      @extend .defaultFormButton;
+      cursor: pointer;
+      color: $white-color;
+      background-color: $main-color;
     }
   }
 }
