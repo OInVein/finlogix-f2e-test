@@ -5,6 +5,7 @@
   height: inherit;
   max-height: 788px;
   background-color: rgb(242, 242, 242);
+  position: relative;
   padding: 80px;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
@@ -38,21 +39,25 @@
 
     &Content {
       display: flex;
-      max-width: 85%;
       flex-direction: column;
       height: 70%;
       gap: 14px;
+      max-width: 85%;
 
       &Topic {
         font-size: 16px;
         color: $content-text-color;
         font-weight: 600;
+        height: 44px;
       }
 
       &Message {
         font-size: 16px;
         color: $description-text-color;
         font-weight: 400;
+        overflow-y: auto;
+        height: 75px;
+        position: relative;
       }
 
       &Time {

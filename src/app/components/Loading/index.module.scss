@@ -1,0 +1,108 @@
+@import '../../styles/animation.scss';
+
+.circle {
+  width: 136px;
+  height: 136px;
+  border-radius: 9999px;
+  position: absolute;
+  border-width: 13px;
+  border-style: solid;
+  animation: ring 1s infinite linear alternate;
+}
+
+.copy {
+  border-bottom-color: transparent;
+  z-index: 30;
+}
+
+.blueDefault {
+  @extend .circle;
+  border-color: rgb(14, 108, 187);
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.orangeDefault {
+  @extend .circle;
+  border-color: rgb(255, 166, 0);
+  bottom: 0;
+  left: 76px;
+  z-index: 10;
+}
+
+.blackDefault {
+  @extend .circle;
+  border-color: rgb(0, 0, 0);
+  left: 151px;
+}
+
+.greenDefault {
+  @extend .circle;
+  border-color: rgb(0, 128, 0);
+  bottom: 0;
+  right: 76px;
+  z-index: 20;
+  transform: rotate(180deg);
+}
+
+.redDefault {
+  @extend .circle;
+  border-color: rgb(255, 0, 0);
+  right: 0;
+  top: 0;
+  z-index: 10;
+  transform: rotate(90deg);
+}
+
+.loading {
+  display: flex;
+  position: absolute;
+  width: 440px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn .5s forwards linear alternate;
+
+  &Blue {
+    @extend .blueDefault;
+
+    &Copy {
+      @extend .blueDefault, .copy;
+    }
+  }
+
+  &Orange {
+    @extend .orangeDefault;
+
+    &Copy {
+      @extend .orangeDefault, .copy;
+    }
+  }
+
+  &Black {
+    @extend .blackDefault;
+
+    &CopyRotate45 {
+      @extend .blackDefault, .copy;
+      transform: rotate(45deg);
+    }
+  }
+
+  &Green {
+    @extend .greenDefault;
+
+    &Copy {
+      @extend .greenDefault, .copy;
+    }
+  }
+
+  &Red {
+    @extend .redDefault;
+
+    &Copy {
+      @extend .redDefault, .copy;
+    }
+  }
+}

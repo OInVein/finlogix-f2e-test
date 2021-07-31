@@ -1,0 +1,18 @@
+@keyframes ring {
+  from {
+    box-shadow: none;
+  }
+
+  to {
+    box-shadow: 0 0 0 15px rgba(169, 169, 169, .2);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

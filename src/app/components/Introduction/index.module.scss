@@ -27,12 +27,18 @@
     }
 
     &More {
+      @extend .commonTransition;
       font-size: 16px;
       font-weight: 400;
       color: $description-text-color;
       cursor: pointer;
       display: flex;
       gap: 5px;
+      width: fit-content;
+
+      &:hover {
+        text-decoration: underline;
+      }
 
       &Button {
         position: relative;
