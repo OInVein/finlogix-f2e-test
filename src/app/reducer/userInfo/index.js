@@ -1,33 +1,13 @@
-import { SHOW_MODAL, HIDE_MODAL, CLEAR_MODAL } from '../../constants';
+import { SET_USER_INFO } from '../../constants';
 
-const initialState = {
-  modalType: null,
-  modalProps: {},
-};
+const initialState = {};
 
 const userInfo = (state = initialState, action) => {
   switch (action.type) {
-    case SHOW_MODAL:
-      return {
-        modalType: action.modalType,
-        modalProps: {
-          ...action.modalProps,
-          isOpen: true,
-        },
-      };
-    case HIDE_MODAL:
-      return {
-        modalType: action.modalType,
-        modalProps: {
-          ...state.modalProps,
-          isOpen: false,
-        },
-      };
-    case CLEAR_MODAL:
-      return {
-        modalType: null,
-        modalProps: {},
-      };
+    case SET_USER_INFO: {
+      const { infos } = action;
+      return infos;
+    }
     default:
       return state;
   }
