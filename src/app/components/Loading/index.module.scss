@@ -10,11 +10,6 @@
   animation: ring 1s infinite linear alternate;
 }
 
-.copy {
-  border-bottom-color: transparent;
-  z-index: 30;
-}
-
 .blueDefault {
   @extend .circle;
   border-color: rgb(14, 108, 187);
@@ -33,7 +28,7 @@
 
 .blackDefault {
   @extend .circle;
-  border-color: rgb(0, 0, 0);
+  border-color: black;
   left: 151px;
 }
 
@@ -84,9 +79,9 @@
   &Black {
     @extend .blackDefault;
 
-    &CopyRotate45 {
+    &CopyRotate90 {
       @extend .blackDefault, .copy;
-      transform: rotate(45deg);
+      transform: rotate(90deg);
     }
   }
 
@@ -105,4 +100,9 @@
       @extend .redDefault, .copy;
     }
   }
+}
+
+.copy {
+  border-bottom-color: transparent;
+  z-index: 30;
 }

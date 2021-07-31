@@ -35,6 +35,7 @@ const CardList = ({ loading, list }) => {
         </div>
       );
     });
+
     return listMapping;
   })();
 

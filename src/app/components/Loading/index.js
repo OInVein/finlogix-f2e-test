@@ -7,7 +7,7 @@ const Loading = () => (
     <div className={styles.loadingOrange}></div>
     <div className={styles.loadingBlueCopy}></div>
     <div className={styles.loadingBlack}></div>
-    <div className={styles.loadingBlackCopyRotate45}></div>
+    <div className={styles.loadingBlackCopyRotate90}></div>
     <div className={styles.loadingGreen}></div>
     <div className={styles.loadingGreenCopy}></div>
     <div className={styles.loadingRed}></div>

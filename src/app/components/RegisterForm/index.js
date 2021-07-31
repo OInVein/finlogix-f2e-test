@@ -13,7 +13,7 @@ const RegisterForm = (props) => {
           </div>
           <div className={styles.registerFormContainerForm}>
             {/** topic select option */}
-            <div className={styles.registerFormContainerFormTopic}>
+            <div className={styles.registerFormContainerFormInputArea}>
               Topic
               <div className={styles.formSelectContainer}>
                 <select className={styles.formSelectMain}>
