@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PAUSE_LOADING } from '../../constants';
+import { MainContainer, SubContainer } from '../../containers';
 import { Header, Banner, CardList, Introduction, RegisterForm } from '../../components';
 import { getCardList } from '../../utils';
-import styles from './index.module.scss';
 
 const Main = () => {
   const [cardList, setCardList] = useState([]);
@@ -16,23 +16,33 @@ const Main = () => {
 
       dispatch({ type: PAUSE_LOADING });
 
-      setCardList(list);
+      const groupedList = list.reduce((acc, curr, index) => {
+        if (index % 6 === 0) {
+          acc.push([]);
+        }
+
+        const lastPos = acc.length - 1;
+        acc[lastPos].push(curr);
+        return acc;
+      }, []);
+
+      setCardList(groupedList);
     };
 
     fetchCardList();
   }, []);
 
   return (
-    <div className={styles.appContainer}>
+    <MainContainer>
       <Header />
 
-      <section className={styles.mainContainer}>
+      <SubContainer>
         <Banner />
         <CardList loading={isLoading} list={cardList} />
         <Introduction />
         <RegisterForm />
-      </section>
-    </div>
+      </SubContainer>
+    </MainContainer>
   );
 };
 

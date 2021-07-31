@@ -2,7 +2,7 @@
 
 .registerForm {
   width: 100%;
-  max-height: 1012px;
+  min-height: 1012px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     width: calc(100% - 93px);
-    max-height: 898px;
+    min-height: 898px;
     border: 1px solid rgba(128, 128, 128, 0.349);
     box-shadow: 0 5px 15px 5px lightgrey;
     border-radius: 15px;

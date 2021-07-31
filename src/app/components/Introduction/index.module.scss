@@ -2,8 +2,7 @@
 
 .introduction {
   width: 100%;
-  height: inherit;
-  max-height: 788px;
+  min-height: 788px;
   padding: 90px;
   display: flex;
   justify-content: space-between;
@@ -27,7 +26,6 @@
     }
 
     &More {
-      @extend .commonTransition;
       font-size: 16px;
       font-weight: 400;
       color: $description-text-color;

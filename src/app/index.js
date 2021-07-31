@@ -1,9 +1,5 @@
 import { MainPage } from './pages';
 
-const App = () => {
-  return (
-    <MainPage />
-  );
-}
+const App = () => <MainPage />;
 
 export default App;
